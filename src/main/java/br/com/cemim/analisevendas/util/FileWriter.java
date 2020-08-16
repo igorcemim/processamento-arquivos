@@ -11,7 +11,7 @@ import java.nio.file.StandardOpenOption;
 public class FileWriter {
 
     public void write(Path path, String content) throws IOException {
-        Files.writeString(path, content, StandardOpenOption.TRUNCATE_EXISTING);
+        Files.writeString(path, content, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE);
     }
 
 }
