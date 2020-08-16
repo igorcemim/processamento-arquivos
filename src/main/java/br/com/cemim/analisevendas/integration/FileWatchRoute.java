@@ -13,11 +13,19 @@ public class FileWatchRoute extends RouteBuilder {
 
     private final FileProcessor fileProcessor;
     private final AppConfig appConfig;
+    private static final String FORMATO_DIRETORIO_ENTRADA = "%s/data/in";
 
     @Override
     public void configure() throws Exception {
-        from("file-watch:" + appConfig.getHomePath() + "/data/in?events=CREATE&antInclude=**/*.dat")
-                .process(fileProcessor);
+        StringBuilder builder = new StringBuilder();
+        builder.append("file-watch:");
+        builder.append(String.format(FORMATO_DIRETORIO_ENTRADA, appConfig.getHomePath()));
+        builder.append("?");
+        builder.append("events=CREATE");
+        builder.append("&");
+        builder.append("antInclude=**/*.dat");
+
+        from(builder.toString()).process(fileProcessor);
     }
 
 }

@@ -19,12 +19,13 @@ public class RelatorioService {
 
     private final AppConfig appConfig;
     private final FileWriter fileWriter;
+    private static final String FORMATO_ARQUIVO_SAIDA = "%s/data/out/%s.done.dat";
 
     public void emitir(Arquivo arquivo, String caminho) {
         var relatorio = new Relatorio(arquivo);
         var nomeEntrada = Paths.get(caminho).getFileName();
         var nomeSemExtensao = FilenameUtils.removeExtension(nomeEntrada.toString());
-        var filePath = String.format("%s/data/out/%s.done.dat", appConfig.getHomePath(), nomeSemExtensao);
+        var filePath = String.format(FORMATO_ARQUIVO_SAIDA, appConfig.getHomePath(), nomeSemExtensao);
         var path = Paths.get(filePath);
 
         try {

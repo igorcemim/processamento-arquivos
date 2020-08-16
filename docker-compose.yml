@@ -1,0 +1,10 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app
+    command: "java -jar build/libs/analise-vendas-0.0.1-SNAPSHOT.jar"
+    volumes:
+      - ./data:/app/data
