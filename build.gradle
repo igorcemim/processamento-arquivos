@@ -24,7 +24,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.apache.camel.springboot:camel-spring-boot-starter:3.4.1'
 	implementation group: 'org.apache.camel', name: 'camel-file-watch', version: '3.4.1'
-
+	implementation group: 'commons-io', name: 'commons-io', version: '2.7'
 	implementation 'org.apache.activemq:activemq-broker'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'

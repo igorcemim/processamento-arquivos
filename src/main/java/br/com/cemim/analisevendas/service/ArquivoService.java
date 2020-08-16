@@ -25,7 +25,7 @@ public class ArquivoService {
             var conteudo = fileReader.readFrom(caminho);
             var linhas = Arrays.asList(conteudo.split(DELIMITADOR_LINHA));
             var arquivo = layoutArquivoService.processar(linhas);
-            relatorioService.emitir(arquivo);
+            relatorioService.emitir(arquivo, caminho);
         } catch (IOException e) {
             throw new UnexpectedException(e);
         }
