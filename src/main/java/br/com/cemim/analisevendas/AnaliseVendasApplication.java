@@ -30,6 +30,7 @@ public class AnaliseVendasApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Files.list(Paths.get(String.format(FORMATO_DIRETORIO_ENTRADA, appConfig.getHomePath())))
-				.forEach(e -> fileLockResolver.resolve(e.toString()));
+				.filter(path -> !path.endsWith(".dat"))
+				.forEach(path -> fileLockResolver.resolve(path.toString()));
 	}
 }
